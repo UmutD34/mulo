@@ -38,7 +38,7 @@ if "current_index" not in st.session_state:
 
 current_item = data[st.session_state.current_index]
 
-st.title("MUTEDRA POLİCE OLUYOR KRALLLLLLLLLLLIMMM")
+st.title(" 👮🚓 MUTEDRA POLİCE OLUYOR KRALLLLLLLLLIMMM 👮🚓")
 st.caption(f"Soru: {st.session_state.current_index + 1} / {len(data)}")
 
 st.markdown(f"""
