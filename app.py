@@ -71,7 +71,7 @@ if "current_item" not in st.session_state:
     st.session_state.show_ans = False
 
 # Başlık Bölümü
-st.title("👮 POMEM Mülakat Hazırlık")
+st.title("👮 MUTEDRA POLİCEEE YEAUUUHUHUH Mülakat Kartları")
 st.caption(f"Toplam Yüklü Soru Sayısı: {len(data)} | Mobil Uyumlu Dijital Kartlar")
 
 # Soru Kartı Tasarımı (HTML/CSS)
