@@ -193,7 +193,7 @@ def go_prev():
 st.markdown(f"""
 <div class="hud-wrap">
   <div>
-    <div class="hud-title">🚔 POMEM OPS</div>
+    <div class="hud-title">🚔 UMUDO POLICE OLUYOR ASLANIM</div>
     <div class="hud-sub">MÜLAKAT SİMÜLATÖRÜ · AKTİF</div>
   </div>
   <div class="hud-pill">
@@ -343,7 +343,7 @@ with ci:
     st.markdown(
         f"<div style='font-family:Share Tech Mono,monospace;font-size:9px;"
         f"color:#2a3040;letter-spacing:1px;padding-top:12px'>"
-        f"POMEM OPS v2.2 · {len(data)} SORU · ASLANIM POLICEEEELİYORRRR 🚔</div>",
+        f"POMEM OPS v2.2 BY Mutedra· {len(data)} SORU · ASLANIM POLICEEEELİYORRRR 🚔</div>",
         unsafe_allow_html=True
     )
 with cr:
