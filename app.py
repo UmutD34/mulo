@@ -4,7 +4,7 @@ import random
 
 # Sayfa Genişlik ve Başlık Ayarları
 st.set_page_config(
-    page_title="POMEM Mülakat Kartları",
+    page_title="MUTEDRA POLİCEEE YEAUUUHUHUH Mülakat Kartları",
     page_icon="👮",
     layout="centered",
     initial_sidebar_state="collapsed"
