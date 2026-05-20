@@ -147,10 +147,11 @@ donemler = sorted(set(q.get("donem","—") for q in data))
 REWARDS = {
     1:   ("🎯 İLK CEVAP AÇILDI!", "green"),
     5:   ("⚡ 5 SORU — BAŞLANGIÇ!", "blue"),
-    10:  ("🔥 10 SORUDA!", "orange"),
-    25:  ("💥 25 SORU — CANAVAR!", "orange"),
+    10:  ("🔥 10 KRALIMMM!", "orange"),
+    25:  ("💥 25 SORU — CANAVARSINN!", "orange"),
     50:  ("🏆 50 SORU — EFSANESİN!", "orange"),
-    100: ("👑 100 SORU — POMEM'E HAZIRSIN!", "orange"),
+    75:  ("🏆 75 SORU — YİGİDİMMM!", "orange"),
+    100: ("👑 100 SORU — SEN ALFASIN ALFAAA", "orange"),
 }
 
 # ── Session State ─────────────────────────────
@@ -342,7 +343,7 @@ with ci:
     st.markdown(
         f"<div style='font-family:Share Tech Mono,monospace;font-size:9px;"
         f"color:#2a3040;letter-spacing:1px;padding-top:12px'>"
-        f"POMEM OPS v2.2 · {len(data)} SORU · MUTEDRA POLİCE OLUYOR 🚔</div>",
+        f"POMEM OPS v2.2 · {len(data)} SORU · ASLANIM POLICEEEELİYORRRR 🚔</div>",
         unsafe_allow_html=True
     )
 with cr:
