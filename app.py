@@ -4,7 +4,7 @@ import random
 import urllib.parse
 
 st.set_page_config(
-    page_title="POMEM OPS SİMULATOR",
+    page_title="POMEM OPS",
     page_icon="🚔",
     layout="centered",
     initial_sidebar_state="collapsed"
@@ -130,13 +130,44 @@ details > div { background:#0f1318 !important; border:1px solid #252b36 !importa
 [data-testid="stDecoration"] { display:none !important; }
 hr { border:none; border-top:1px solid #1e2530 !important; margin:14px 0 !important; }
 
-@media (max-width:480px) {
+/* MOBİL GÖRÜNÜM VE YAN YANA BUTON DÜZENİ */
+@media (max-width: 600px) {
     .hud-title { font-size:17px; }
     .q-text    { font-size:16px; }
     .a-body    { font-size:14px; }
     .stat-val  { font-size:21px; }
-    .stButton > button { font-size: 11px !important; letter-spacing: 1px !important; padding: 0 4px !important; }
     .block-container { padding:1rem .6rem 3rem !important; }
+
+    /* Ana Butonları (4 Kolon) Mobilde Yan Yana Zorla */
+    div[data-testid="stHorizontalBlock"]:has(> div[data-testid="column"]:nth-child(4)) {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 4px !important;
+    }
+    div[data-testid="stHorizontalBlock"]:has(> div[data-testid="column"]:nth-child(4)) > div[data-testid="column"] {
+        min-width: 0 !important;
+        width: 25% !important;
+        flex: 1 1 0% !important; /* Hepsini tam eşit dağıt */
+    }
+
+    /* Filtre ve Ayarlar İçindeki 2'li Kolonları Yan Yana Tutar */
+    div[data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+    }
+    div[data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
+        min-width: 0 !important;
+        flex: 1 1 0% !important;
+    }
+
+    /* Dar ekrana buton metinlerini sığdır */
+    .stButton > button { 
+        font-size: 10px !important; 
+        letter-spacing: 0px !important; 
+        padding: 0 2px !important; 
+        height: 44px !important; 
+    }
 }
 </style>""", unsafe_allow_html=True)
 
@@ -156,12 +187,12 @@ data     = load_data()
 donemler = sorted(set(q.get("donem","—") for q in data))
 
 REWARDS = {
-    1:   ("🎯 İLK CEVAP ASLANIM!", "green"),
-    5:   ("⚡ 5 SORU TAMAM YAVRUM!", "blue"),
-    10:  ("🔥 10 SORU BE YÜRÜ BE UMUDUM!", "orange"),
-    25:  ("💥 25 SORU — CANAVARSIN UMUDUM!", "orange"),
-    50:  ("🏆 50 SORU — EFSANESİN! KRALIM ", "orange"),
-    100: ("👑 100 SORU — SEN YENİLMEZSİN ASLANIM", "orange"),
+    1:   ("🎯 İLK CEVAP!", "green"),
+    5:   ("⚡ 5 SORU TAMAM!", "blue"),
+    10:  ("🔥 10 SORUDA!", "orange"),
+    25:  ("💥 25 SORU — CANAVAR!", "orange"),
+    50:  ("🏆 50 SORU — EFSANESİN!", "orange"),
+    100: ("👑 100 SORU — POMEM'E HAZIRSIN!", "orange"),
 }
 
 # ── Session State ─────────────────────────────────────────────────────────────
@@ -199,7 +230,7 @@ def go_prev():
 st.markdown(f"""
 <div class="hud-wrap">
   <div>
-    <div class="hud-title">POMEM OPS SİMULATOR 🚔</div>
+    <div class="hud-title">🚔 POMEM OPS</div>
     <div class="hud-sub">MÜLAKAT SİMÜLATÖRÜ · AKTİF</div>
   </div>
   <div class="hud-pill">
@@ -344,7 +375,7 @@ with ci:
     st.markdown(
         f"<div style='font-family:Share Tech Mono,monospace;font-size:9px;"
         f"color:#2a3040;letter-spacing:1px;padding-top:10px'>"
-        f"POMEM OPS v2.3 · {len(data)} SORU · CREATED WITH LOVE BY UMUT MUTEDRA </div>",
+        f"POMEM OPS v2.3 · {len(data)} SORU · MUTEDRA POLİCE OLUYOR 🚔</div>",
         unsafe_allow_html=True)
 with cr:
     if st.button("↺ SIFIRLA", key="sifirla"):
