@@ -24,7 +24,7 @@ html, body, [class*="css"], .stApp {
 }
 .block-container { padding: 1.2rem 0.9rem 4rem !important; max-width: 720px !important; }
 
-/* HUD */
+/* HUD ve Siren Efekti */
 .hud-wrap {
     display:flex; align-items:center; justify-content:space-between;
     background:#13171f; border:1px solid #252b36; border-radius:14px;
@@ -44,20 +44,20 @@ html, body, [class*="css"], .stApp {
 .pill-val  { font-family:'Rajdhani',sans-serif; font-size:20px; font-weight:700; color:#f0883e; }
 .pill-lbl  { font-family:'Share Tech Mono',monospace; font-size:9px; color:#4a5568; letter-spacing:1px; }
 
-/* Stat */
+/* İstatistikler */
 .stat-row { display:flex; gap:8px; margin-bottom:14px; }
 .stat-box { flex:1; background:#13171f; border:1px solid #252b36; border-radius:10px; padding:10px 8px; text-align:center; }
 .stat-val { font-family:'Rajdhani',sans-serif; font-size:24px; font-weight:700; line-height:1; }
 .stat-lbl { font-family:'Share Tech Mono',monospace; font-size:9px; color:#6b7280; letter-spacing:1px; margin-top:3px; }
 .c-blue{color:#4da3ff} .c-green{color:#3fb950} .c-orange{color:#f0883e}
 
-/* Progress */
+/* İlerleme */
 .prog-wrap { margin-bottom:14px; }
 .prog-meta { display:flex; justify-content:space-between; font-family:'Share Tech Mono',monospace; font-size:10px; color:#6b7280; margin-bottom:5px; }
 .prog-track { background:#13171f; border-radius:4px; height:5px; border:1px solid #252b36; overflow:hidden; }
 .prog-fill  { height:100%; border-radius:4px; background:linear-gradient(90deg,#1d5db5,#4da3ff); transition:width .5s ease; }
 
-/* Soru kartı */
+/* Soru & Cevap Kartları */
 .q-card {
     background:#13171f; border:1px solid #252b36; border-radius:14px;
     padding:24px 20px 18px; margin-bottom:14px; position:relative; overflow:hidden;
@@ -71,7 +71,6 @@ html, body, [class*="css"], .stApp {
 .q-foot { margin-top:12px; font-family:'Share Tech Mono',monospace; font-size:9px; color:#4a5568; letter-spacing:2px; }
 .q-foot span { color:#f0883e; }
 
-/* Cevap */
 .a-card {
     background:#0e1a13; border:1px solid #2a5c39; border-radius:14px;
     padding:20px; margin-bottom:12px; position:relative; overflow:hidden;
@@ -82,7 +81,7 @@ html, body, [class*="css"], .stApp {
 .a-head { font-family:'Share Tech Mono',monospace; font-size:9px; color:#3fb950; letter-spacing:3px; margin-bottom:10px; }
 .a-body { font-family:'Noto Sans',sans-serif; font-size:15px; color:#d0dce8; line-height:1.8; white-space:pre-line; }
 
-/* Ödül */
+/* Ödül Banner */
 .reward-banner {
     border-radius:10px; padding:11px 16px; margin-bottom:12px;
     font-family:'Rajdhani',sans-serif; font-size:15px; font-weight:700;
@@ -92,49 +91,33 @@ html, body, [class*="css"], .stApp {
 .reward-orange { background:#1a1208; border:1px solid #f0883e; color:#f0883e; }
 .reward-blue   { background:#0b1320; border:1px solid #4da3ff; color:#4da3ff; }
 
-/* ── Buton Grid — HTML tabanlı, Streamlit column'larından bağımsız ── */
-.btn-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 10px;
-}
-.btn-grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 14px;
-}
-.hbtn {
-    display: flex; align-items: center; justify-content: center;
-    height: 46px; border-radius: 8px; cursor: pointer;
-    font-family: 'Rajdhani', sans-serif; font-weight: 700;
-    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
-    text-decoration: none; border: 1px solid #252b36;
-    background: #13171f; color: #adb5bd;
-    transition: all .2s; white-space: nowrap;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-}
-.hbtn:active { transform: scale(.96); }
-.hbtn.blue  { border-color:#2a4a7f; color:#4da3ff; }
-.hbtn.green { border-color:#2a5c39; color:#3fb950; }
-.hbtn.orange{ border-color:#7a3f10; color:#f0883e; }
-.hbtn.red   { border-color:#5a1f1f; color:#f87171; }
-.hbtn.gray  { border-color:#252b36; color:#6b7280; }
-
-/* Streamlit butonları — sadece expander içi için */
+/* Streamlit Native Buton Düzenlemeleri (Çalışan Versiyon) */
 .stButton > button {
     font-family:'Rajdhani',sans-serif !important; font-weight:700 !important;
-    font-size:12px !important; letter-spacing:1px !important;
+    font-size:13px !important; letter-spacing:2px !important;
     text-transform:uppercase !important; border-radius:8px !important;
-    height:40px !important; width:100% !important;
+    height:46px !important; width:100% !important;
     background:#13171f !important; border:1px solid #252b36 !important;
     color:#adb5bd !important; transition:all .2s !important;
 }
-.stButton > button:hover:not(:disabled) { background:#1a1f2b !important; border-color:#4da3ff !important; color:#4da3ff !important; }
-.stButton > button:disabled { opacity:.25 !important; }
+/* Geri ve İleri (Mavi) */
+div[data-testid="column"]:nth-child(1) .stButton > button,
+div[data-testid="column"]:nth-child(3) .stButton > button { border-color:#2a4a7f !important; color:#4da3ff !important; }
+div[data-testid="column"]:nth-child(1) .stButton > button:hover:not(:disabled),
+div[data-testid="column"]:nth-child(3) .stButton > button:hover:not(:disabled) { background:#1a1f2b !important; border-color:#4da3ff !important; box-shadow:0 0 12px rgba(77,163,255,.15) !important;}
 
+/* Cevap (Yeşil) */
+div[data-testid="column"]:nth-child(2) .stButton > button { border-color:#2a5c39 !important; color:#3fb950 !important; }
+div[data-testid="column"]:nth-child(2) .stButton > button:hover:not(:disabled) { background:#0e1a13 !important; border-color:#3fb950 !important; color:#56d364 !important; box-shadow:0 0 12px rgba(63,185,80,.15) !important;}
+
+/* Şans (Turuncu) */
+div[data-testid="column"]:nth-child(4) .stButton > button { border-color:#7a3f10 !important; color:#f0883e !important; }
+div[data-testid="column"]:nth-child(4) .stButton > button:hover:not(:disabled) { background:#1a1208 !important; border-color:#f0883e !important; color:#ffa657 !important; box-shadow:0 0 12px rgba(240,136,62,.15) !important;}
+
+/* Disabled State */
+.stButton > button:disabled { opacity: 0.4 !important; border-color: #252b36 !important; color: #6b7280 !important; }
+
+/* Form Elements */
 .stSelectbox > div > div { background:#13171f !important; border-color:#252b36 !important; color:#e8edf2 !important; font-family:'Share Tech Mono',monospace !important; font-size:12px !important; border-radius:8px !important; }
 .stSelectbox label, .stNumberInput label { color:#6b7280 !important; font-family:'Share Tech Mono',monospace !important; font-size:10px !important; letter-spacing:2px !important; }
 .stNumberInput input { background:#13171f !important; border-color:#252b36 !important; color:#e8edf2 !important; font-family:'Share Tech Mono',monospace !important; }
@@ -147,14 +130,12 @@ details > div { background:#0f1318 !important; border:1px solid #252b36 !importa
 [data-testid="stDecoration"] { display:none !important; }
 hr { border:none; border-top:1px solid #1e2530 !important; margin:14px 0 !important; }
 
-/* Mobil fine-tuning */
 @media (max-width:480px) {
     .hud-title { font-size:17px; }
     .q-text    { font-size:16px; }
     .a-body    { font-size:14px; }
     .stat-val  { font-size:21px; }
-    .btn-grid  { grid-template-columns: 1fr 1.5fr 1fr 1fr; gap:6px; }
-    .hbtn      { font-size:11px; height:44px; letter-spacing:1px; }
+    .stButton > button { font-size: 11px !important; letter-spacing: 1px !important; padding: 0 4px !important; }
     .block-container { padding:1rem .6rem 3rem !important; }
 }
 </style>""", unsafe_allow_html=True)
@@ -199,6 +180,20 @@ filtered = st.session_state.filtered_data or data
 idx      = max(0, min(st.session_state.index, len(filtered)-1))
 q        = filtered[idx]
 
+def go_next():
+    fd = st.session_state.filtered_data
+    if st.session_state.mode == "rastgele":
+        st.session_state.index = random.randint(0, len(fd)-1)
+    elif st.session_state.index < len(fd)-1:
+        st.session_state.index += 1
+    st.session_state.show_ans = False
+    st.session_state.reward   = ""
+
+def go_prev():
+    if st.session_state.index > 0:
+        st.session_state.index -= 1
+    st.session_state.show_ans = False
+    st.session_state.reward   = ""
 
 # ── HUD ──────────────────────────────────────────────────────────────────────
 st.markdown(f"""
@@ -283,66 +278,39 @@ st.markdown(f"""
   <div class="q-foot">KAYNAK · <span>{donem_lbl}</span></div>
 </div>""", unsafe_allow_html=True)
 
+# ── Native Buton Grid ────────────────────────────────────────────────────────
+b1, b2, b3, b4 = st.columns([1, 1.4, 1, 1])
 
-# ── Buton aksiyonları — form yoluyla ─────────────────────────────────────────
-# HTML butonlar görsel tarafı hallediyor; Streamlit butonları invisible olarak
-# state değişikliğini tetikliyor. Tam uyum için st.form + submit kullanıyoruz.
+with b1:
+    if st.button("◀  GERİ", disabled=(idx == 0)):
+        go_prev(); st.rerun()
 
-geri_disabled  = idx == 0
-ileri_disabled = (st.session_state.mode == "sıralı" and idx >= len(filtered)-1)
-ans_lbl        = "🔒 GİZLE" if st.session_state.show_ans else "🔓 CEVAP"
-
-# HTML buton grid — görsel
-st.markdown(f"""
-<div class="btn-grid">
-  <div class="hbtn {'gray' if geri_disabled else 'blue'}" id="btn-geri"
-       style="{'opacity:.25;pointer-events:none' if geri_disabled else ''}">
-    ◀ GERİ
-  </div>
-  <div class="hbtn green" id="btn-cevap">{ans_lbl}</div>
-  <div class="hbtn {'gray' if ileri_disabled else 'blue'}" id="btn-ileri"
-       style="{'opacity:.25;pointer-events:none' if ileri_disabled else ''}">
-    İLERİ ▶
-  </div>
-  <div class="hbtn orange" id="btn-sans">🎲 ŞANS</div>
-</div>""", unsafe_allow_html=True)
-
-# Streamlit butonları — işlevsel (görünmez değil ama küçük, altta)
-c1, c2, c3, c4 = st.columns([1, 1.5, 1, 1])
-with c1:
-    if st.button("◀", disabled=geri_disabled, key="geri"):
-        st.session_state.index   -= 1
-        st.session_state.show_ans = False
-        st.session_state.reward   = ""
-        st.rerun()
-with c2:
-    if st.button(ans_lbl, key="cevap"):
+with b2:
+    ans_lbl = "🔒 GİZLE" if st.session_state.show_ans else "🔓 CEVAP"
+    if st.button(ans_lbl, use_container_width=True):
         st.session_state.show_ans = not st.session_state.show_ans
         if st.session_state.show_ans:
             st.session_state.seen += 1
-            if st.session_state.seen in REWARDS:
-                msg, rtype = REWARDS[st.session_state.seen]
+            seen_now = st.session_state.seen
+            if seen_now in REWARDS:
+                msg, rtype = REWARDS[seen_now]
                 st.session_state.reward      = msg
                 st.session_state.reward_type = rtype
             else:
                 st.session_state.reward = ""
         st.rerun()
-with c3:
-    if st.button("▶", disabled=ileri_disabled, key="ileri"):
-        if st.session_state.mode == "rastgele":
-            st.session_state.index = random.randint(0, len(filtered)-1)
-        elif st.session_state.index < len(filtered)-1:
-            st.session_state.index += 1
-        st.session_state.show_ans = False
-        st.session_state.reward   = ""
-        st.rerun()
-with c4:
-    if st.button("🎲", key="sans"):
+
+with b3:
+    next_disabled = (st.session_state.mode == "sıralı" and idx >= len(filtered)-1)
+    if st.button("İLERİ  ▶", disabled=next_disabled):
+        go_next(); st.rerun()
+
+with b4:
+    if st.button("🎲  ŞANS"):
         st.session_state.index    = random.randint(0, len(filtered)-1)
         st.session_state.show_ans = False
         st.session_state.reward   = ""
         st.rerun()
-
 
 # ── Cevap Kartı ───────────────────────────────────────────────────────────────
 if st.session_state.show_ans:
@@ -362,7 +330,10 @@ if st.session_state.show_ans:
         'background:#0b0d11; border:1px solid #30363d;'
         'font-family:Rajdhani,sans-serif; font-weight:700;'
         'font-size:13px; letter-spacing:2px; color:#6b7280;'
-        'text-decoration:none; text-transform:uppercase;">'
+        'text-decoration:none; text-transform:uppercase;'
+        'transition:all .2s;"'
+        ' onmouseover="this.style.borderColor=\'#4da3ff\';this.style.color=\'#4da3ff\'"'
+        ' onmouseout="this.style.borderColor=\'#30363d\';this.style.color=\'#6b7280\'">'
         '🔍 GOOGLE\'DA ARA</a>',
         unsafe_allow_html=True)
 
