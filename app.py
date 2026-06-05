@@ -4,7 +4,7 @@ import random
 import urllib.parse
 
 st.set_page_config(
-    page_title="POMEM OPS",
+    page_title="POMEM OPS SİMULATOR",
     page_icon="🚔",
     layout="centered",
     initial_sidebar_state="collapsed"
@@ -156,12 +156,12 @@ data     = load_data()
 donemler = sorted(set(q.get("donem","—") for q in data))
 
 REWARDS = {
-    1:   ("🎯 İLK CEVAP!", "green"),
-    5:   ("⚡ 5 SORU TAMAM!", "blue"),
-    10:  ("🔥 10 SORUDA!", "orange"),
-    25:  ("💥 25 SORU — CANAVAR!", "orange"),
-    50:  ("🏆 50 SORU — EFSANESİN!", "orange"),
-    100: ("👑 100 SORU — POMEM'E HAZIRSIN!", "orange"),
+    1:   ("🎯 İLK CEVAP ASLANIM!", "green"),
+    5:   ("⚡ 5 SORU TAMAM YAVRUM!", "blue"),
+    10:  ("🔥 10 SORU BE YÜRÜ BE UMUDUM!", "orange"),
+    25:  ("💥 25 SORU — CANAVARSIN UMUDUM!", "orange"),
+    50:  ("🏆 50 SORU — EFSANESİN! KRALIM ", "orange"),
+    100: ("👑 100 SORU — SEN YENİLMEZSİN ASLANIM", "orange"),
 }
 
 # ── Session State ─────────────────────────────────────────────────────────────
@@ -344,7 +344,7 @@ with ci:
     st.markdown(
         f"<div style='font-family:Share Tech Mono,monospace;font-size:9px;"
         f"color:#2a3040;letter-spacing:1px;padding-top:10px'>"
-        f"POMEM OPS v2.3 · {len(data)} SORU · MUTEDRA POLİCE OLUYOR 🚔</div>",
+        f"POMEM OPS v2.3 · {len(data)} SORU · CREATED WITH LOVE BY UMUT MUTEDRA </div>",
         unsafe_allow_html=True)
 with cr:
     if st.button("↺ SIFIRLA", key="sifirla"):
