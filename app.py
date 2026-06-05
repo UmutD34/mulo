@@ -91,7 +91,7 @@ html, body, [class*="css"], .stApp {
 .reward-orange { background:#1a1208; border:1px solid #f0883e; color:#f0883e; }
 .reward-blue   { background:#0b1320; border:1px solid #4da3ff; color:#4da3ff; }
 
-/* Streamlit Native Buton Düzenlemeleri (Çalışan Versiyon) */
+/* Streamlit Native Buton Düzenlemeleri (Masaüstü) */
 .stButton > button {
     font-family:'Rajdhani',sans-serif !important; font-weight:700 !important;
     font-size:13px !important; letter-spacing:2px !important;
@@ -100,24 +100,19 @@ html, body, [class*="css"], .stApp {
     background:#13171f !important; border:1px solid #252b36 !important;
     color:#adb5bd !important; transition:all .2s !important;
 }
-/* Geri ve İleri (Mavi) */
 div[data-testid="column"]:nth-child(1) .stButton > button,
 div[data-testid="column"]:nth-child(3) .stButton > button { border-color:#2a4a7f !important; color:#4da3ff !important; }
 div[data-testid="column"]:nth-child(1) .stButton > button:hover:not(:disabled),
 div[data-testid="column"]:nth-child(3) .stButton > button:hover:not(:disabled) { background:#1a1f2b !important; border-color:#4da3ff !important; box-shadow:0 0 12px rgba(77,163,255,.15) !important;}
 
-/* Cevap (Yeşil) */
 div[data-testid="column"]:nth-child(2) .stButton > button { border-color:#2a5c39 !important; color:#3fb950 !important; }
 div[data-testid="column"]:nth-child(2) .stButton > button:hover:not(:disabled) { background:#0e1a13 !important; border-color:#3fb950 !important; color:#56d364 !important; box-shadow:0 0 12px rgba(63,185,80,.15) !important;}
 
-/* Şans (Turuncu) */
 div[data-testid="column"]:nth-child(4) .stButton > button { border-color:#7a3f10 !important; color:#f0883e !important; }
 div[data-testid="column"]:nth-child(4) .stButton > button:hover:not(:disabled) { background:#1a1208 !important; border-color:#f0883e !important; color:#ffa657 !important; box-shadow:0 0 12px rgba(240,136,62,.15) !important;}
 
-/* Disabled State */
 .stButton > button:disabled { opacity: 0.4 !important; border-color: #252b36 !important; color: #6b7280 !important; }
 
-/* Form Elements */
 .stSelectbox > div > div { background:#13171f !important; border-color:#252b36 !important; color:#e8edf2 !important; font-family:'Share Tech Mono',monospace !important; font-size:12px !important; border-radius:8px !important; }
 .stSelectbox label, .stNumberInput label { color:#6b7280 !important; font-family:'Share Tech Mono',monospace !important; font-size:10px !important; letter-spacing:2px !important; }
 .stNumberInput input { background:#13171f !important; border-color:#252b36 !important; color:#e8edf2 !important; font-family:'Share Tech Mono',monospace !important; }
@@ -130,43 +125,46 @@ details > div { background:#0f1318 !important; border:1px solid #252b36 !importa
 [data-testid="stDecoration"] { display:none !important; }
 hr { border:none; border-top:1px solid #1e2530 !important; margin:14px 0 !important; }
 
-/* MOBİL GÖRÜNÜM VE YAN YANA BUTON DÜZENİ */
-@media (max-width: 600px) {
+/* =========================================================
+   MOBİL İÇİN KESİN ÇÖZÜM (SÜTUN KIRILMASINI ENGELLE)
+   ========================================================= */
+@media (max-width: 768px) {
     .hud-title { font-size:17px; }
     .q-text    { font-size:16px; }
     .a-body    { font-size:14px; }
     .stat-val  { font-size:21px; }
     .block-container { padding:1rem .6rem 3rem !important; }
 
-    /* Ana Butonları (4 Kolon) Mobilde Yan Yana Zorla */
-    div[data-testid="stHorizontalBlock"]:has(> div[data-testid="column"]:nth-child(4)) {
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        gap: 4px !important;
-    }
-    div[data-testid="stHorizontalBlock"]:has(> div[data-testid="column"]:nth-child(4)) > div[data-testid="column"] {
-        min-width: 0 !important;
-        width: 25% !important;
-        flex: 1 1 0% !important; /* Hepsini tam eşit dağıt */
-    }
-
-    /* Filtre ve Ayarlar İçindeki 2'li Kolonları Yan Yana Tutar */
-    div[data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] {
+    /* Streamlit'in yatay dizilimi dikey (column) yapmasını engelle ve yan yana zorla */
+    div[data-testid="stHorizontalBlock"] {
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         gap: 6px !important;
     }
-    div[data-testid="stExpanderDetails"] div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
+    
+    /* İçindeki kolonların esneyerek eşit sığmasını sağla */
+    div[data-testid="column"] {
+        width: 100% !important;
+        flex: 1 1 0px !important;
         min-width: 0 !important;
-        flex: 1 1 0% !important;
+        padding: 0 !important;
     }
 
-    /* Dar ekrana buton metinlerini sığdır */
-    .stButton > button { 
-        font-size: 10px !important; 
-        letter-spacing: 0px !important; 
-        padding: 0 2px !important; 
-        height: 44px !important; 
+    /* Cevap butonunun olduğu kolon biraz daha geniş olsun */
+    div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:nth-child(2) {
+        flex: 1.4 1 0px !important;
+    }
+
+    /* Dar ekranda buton içi metin sığsın diye küçültüyoruz */
+    .stButton > button {
+        font-size: 10.5px !important;
+        letter-spacing: 0px !important;
+        padding: 0 2px !important;
+        height: 44px !important;
+    }
+    .stButton > button p {
+        font-size: 10.5px !important;
+        margin: 0 !important;
     }
 }
 </style>""", unsafe_allow_html=True)
@@ -313,7 +311,7 @@ st.markdown(f"""
 b1, b2, b3, b4 = st.columns([1, 1.4, 1, 1])
 
 with b1:
-    if st.button("◀  GERİ", disabled=(idx == 0)):
+    if st.button("◀ GERİ", disabled=(idx == 0)):
         go_prev(); st.rerun()
 
 with b2:
@@ -333,11 +331,11 @@ with b2:
 
 with b3:
     next_disabled = (st.session_state.mode == "sıralı" and idx >= len(filtered)-1)
-    if st.button("İLERİ  ▶", disabled=next_disabled):
+    if st.button("İLERİ ▶", disabled=next_disabled):
         go_next(); st.rerun()
 
 with b4:
-    if st.button("🎲  ŞANS"):
+    if st.button("🎲 ŞANS"):
         st.session_state.index    = random.randint(0, len(filtered)-1)
         st.session_state.show_ans = False
         st.session_state.reward   = ""
