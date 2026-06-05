@@ -199,7 +199,7 @@ def go_prev():
 st.markdown(f"""
 <div class="hud-wrap">
   <div>
-    <div class="hud-title">🚔 POMEM OPS SİMULATOR 🚔</div>
+    <div class="hud-title">POMEM OPS SİMULATOR 🚔</div>
     <div class="hud-sub">MÜLAKAT SİMÜLATÖRÜ · AKTİF</div>
   </div>
   <div class="hud-pill">
